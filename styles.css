@@ -56,5 +56,18 @@ body{
 
 .goalBox{
     border-style: solid;
-    width
+    text-align: center;
+}
+span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+.settingsButton{
+    margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
