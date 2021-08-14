@@ -23,7 +23,7 @@ var money = 100;
 var happiness = 100;
 
 // Converts excel file into 2D array:
-xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx').then((rows) => {
+xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx', {sheet : 2}).then((rows) => {
     data = rows;
     scenarios =
     {
