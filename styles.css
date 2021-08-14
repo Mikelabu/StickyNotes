@@ -71,3 +71,56 @@ span {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+/*Drop down menu*/
+.dropdown {
+    margin: 0 1rem;
+    font-family: "Oswald", sans-serif;
+    text-transform: none;
+    font-size: 1.25rem;
+    color: #4a4a4a;
+    /*We want these buttons to have a decent touch area so they are easy to click/tap*/
+    display: inline-block;
+    min-height: 2.8125rem;
+    align-items: center;
+    /*Styles needed for the button only*/
+    border: 2rem;
+    background: none;
+  }
+  /*.dropdown {
+    position: relative;
+    display: inline-block;
+  }*/
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #faf320;
+    min-width: 4rem;
+    border-radius: 1rem;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 0;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(68, 215, 241);
+    color: rgb(12, 12, 12);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    margin: 1rem 3rem;
+    padding: 0 0.25rem;
+    display: block;
+    flex-wrap: nowrap;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: rgb(68, 215, 241);
+    color: black;
+    transition: 50s;
