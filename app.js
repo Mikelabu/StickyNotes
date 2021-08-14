@@ -19,6 +19,9 @@ app.listen(port, function () {
 var data; // 2D array with excel file data
 var scenarios; // Dictionary (map) of different scenarios and options:
 
+var money = 100;
+var happiness = 100;
+
 // Converts excel file into 2D array:
 xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx').then((rows) => {
     data = rows;
@@ -29,10 +32,14 @@ xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx').then((r
             stat : "The average household weekly expenditure on transport is $20.50",
             options : [
                 {
-                    description : "Take the train."
+                    description : "Take the train.",
+                    moneyImpact : -0.70,
+                    happinessImpact : 5
                 },
                 {
-                    description : "Take the car."
+                    description : "Take the car.",
+                    moneyImpact : 5,
+                    happinessImpact : 2
                 }
             ]
         }
