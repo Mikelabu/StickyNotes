@@ -30,34 +30,36 @@ app.get('/household', function (req, res) {
         scenarios =
         {
             transport : {
+                title : "Transport",
                 description : "You are forced to go to school. What option do you choose?",
                 stat : "The average NZ household weekly expenditure on train fares was $"+data[135][3]+" (2015-2016).",
                 options : [
                     {
                         description : "Take the train.",
-                        moneyImpact : 0.70,
-                        happinessImpact : -5
+                        moneyImpact : "Spend $3.00",
+                        happinessImpact : "Lose 5 Happiness"
                     },
                     {
                         description : "Take the car.",
-                        moneyImpact : 5,
-                        happinessImpact : 2
+                        moneyImpact : "Spend $5.00",
+                        happinessImpact : "Gain 3 Happiness"
                     }
                 ]
             },
             clothes : {
+                title : "Clothing",
                 description : "Your clothes are outdated. What option do you choose?",
                 stat : "The average NZ household weekly expenditure on clothing was $"+add(data[48][3],data[49][3])+" (2015-2016).",
                 options : [
                     {
                         description : "Buy new clothes.",
-                        moneyImpact : 0.70,
-                        happinessImpact : -5
+                        moneyImpact : "Spend $10.00",
+                        happinessImpact : "Gain 3 Happiness"
                     },
                     {
                         description : "Deal with it.",
-                        moneyImpact : 5,
-                        happinessImpact : 2
+                        moneyImpact : "Spend Nothing",
+                        happinessImpact : "Lose 5 Happiness"
                     }
                 ]
             }

@@ -15,13 +15,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" 
+    src="app.js">
+    </script>
   </head>
 
-  <body>
+  <body onload="loadFirstScenario()">
     <header class="rwd-MastHead"><!-- Header will be changed to suit design-->
       <nav class="scanario-title"></nav>
       <div class="hero"></div>
-      <h1>This Is our Senario page under constructionz.</h1>
+      <h1 id="title">Scenarios:</h1>
       <div>
         <a href="index.html"><button class="homebtn">Home</button></a>
   </div>
@@ -30,44 +33,62 @@
     <main>
       <img src="../images/BusStop.jpg" alt="Bus stop image" /></center>
         </figure>
-      <div class="senario-img"> <!--change img-->
-        <!--<figure>
-          <center><img src="../images/BusStop.jpg" alt="Bus stop image" /></center>
-        </figure>-->
-        <h1>Senario in here</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem sit impedit distinctio repellendus laudantium odio
-          dolore culpa quod sapiente neque sequi incidunt repellat eligendi iure
-          cum, tempora explicabo adipisci quae!
-        </p>
+      <div>  
+        
+        
       </div>
 
-      <div class="senario-img"> <!--change img-->
-        <!--<figure>
-          <center><img src="../images/BusStop.jpg" alt="Bus stop image" /></center>
-        </figure>-->
-        <h1>Senario 2 in here</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem sit impedit distinctio repellendus laudantium odio
-          dolore culpa quod sapiente neque sequi incidunt repellat eligendi iure
-          cum, tempora explicabo adipisci quae!
-        </p>
+      <div > 
+        <h3 id="description">Description</h3>
+        <p id="hint">Paragraph</p>
+
+        
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Take the Train to School</button>
+        <button class="dropbtn" id="option1" onclick="loadSecondScenario()">Take the Train to School</button>
         <div class="dropdown-content">
-          <a href="#">Train Data</a>
+          <a id="impact1">Train Data</a>
         </div>
       </div>
         <div class="dropdown">
-          <button class="dropbtn">Take the Gas Guzzler to School</button>
+          <button class="dropbtn" id="option2" onclick="loadSecondScenario()">Take the Gas Guzzler to School</button>
           <div class="dropdown-content">
-            <a href="#">Car Data</a>
+            <a id="impact2">Car Data</a>
           </div>
         </div>
       </div>
     </main>
+
+    <script type="text/javascript">
+      async function loadFirstScenario() {
+        const response = await fetch('/household');
+        const data = await response.json();
+        const scenario = data.transport;
+
+        document.getElementById('title').innerHTML = scenario.title;
+        document.getElementById('description').innerHTML = scenario.description;
+        document.getElementById('hint').innerHTML = scenario.stat;
+        document.getElementById('option1').innerHTML = scenario.options[0].description;
+        document.getElementById('option2').innerHTML = scenario.options[1].description;
+        document.getElementById('impact1').innerHTML = scenario.options[0].moneyImpact+", "+scenario.options[0].happinessImpact;
+        document.getElementById('impact2').innerHTML = scenario.options[1].moneyImpact+", "+scenario.options[1].happinessImpact;
+      }
+    </script>
+
+<script type="text/javascript">
+  async function loadSecondScenario() {
+    const response = await fetch('/household');
+    const data = await response.json();
+    const scenario = data.clothes;
+
+        document.getElementById('title').innerHTML = scenario.title;
+        document.getElementById('description').innerHTML = scenario.description;
+        document.getElementById('hint').innerHTML = scenario.stat;
+        document.getElementById('option1').innerHTML = scenario.options[0].description;
+        document.getElementById('option2').innerHTML = scenario.options[1].description;
+        document.getElementById('impact1').innerHTML = scenario.options[0].moneyImpact+", "+scenario.options[0].happinessImpact;
+        document.getElementById('impact2').innerHTML = scenario.options[1].moneyImpact+", "+scenario.options[1].happinessImpact;
+  }
+</script>
   </body>
 </html>
