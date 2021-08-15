@@ -31,7 +31,7 @@
     </header>
 
     <main>
-      <center><img src="Thriftr-graphics\Bus_Artboard 1_Artboard 1.png" alt="Bus stop image" /></center>
+      <center><img id="image" src="Thriftr-graphics\Bus_Artboard 1_Artboard 1.png" alt="Bus stop image" /></center>
         </figure>
       <div>  
         
@@ -86,6 +86,7 @@
     const data = await response.json();
     const scenario = data.clothes;
 
+    document.getElementById('image').src = "Thriftr-graphics/clothes.png";
         document.getElementById('title').innerHTML = scenario.title;
         document.getElementById('description').innerHTML = scenario.description;
         document.getElementById('hint').innerHTML = scenario.stat;
