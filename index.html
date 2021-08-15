@@ -6,6 +6,7 @@
     <title>Thriftr</title>
 
     <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,35 +18,61 @@
   </head>
 
   <body>
-    <!--<div>  This Button can be used for stats info
-      <a href="senario.html"><button class="homebtn">Home</button></a>
-    </div>-->
     <div class="mainPage">
       <!--Title of page, might add logo here-->
+
       <div class="titleSection">
         <div class="title">
-          <h1>Title goes here</h1>
+          <div class="logo">
+            <img
+              src="Thriftr Icon & Name.png"
+              alt="Thrifty logo"
+              width="20%"
+              height="20%"
+            />
+          </div>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <div class="burgerMenu" onclick="myFunction(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
       </div>
 
       <div class="showStats">
         <div class="happiness">
-          <p>happiness bar</p>
+          <div class="happinessBar">
+            <img
+              src="Happy Face.svg"
+              alt="happy face"
+              width="15%"
+              height="15%"
+            />100%
+          </div>
         </div>
         <!--happiness -->
 
         <div class="money">
-          <p>money bar</p>
+          <div class="moneyBar">
+            <img
+              src="Money Icon.svg"
+              alt="Money Icon"
+              width="15%"
+              height="15%"
+            />$468.24
+          </div>
         </div>
       </div>
 
       <div class="goalBox">
-        <span>Your goal is to buy a Laptop</span>
+        <div>Your goal is to buy a Laptop</div>
       </div>
 
       <div class="logBox">
         <p>Current situation</p>
       </div>
+      <button class="settingsButton">Settings</button>
       <div>
         <a href="senario.html"><button class="homebtn">Home</button></a>
       </div>
