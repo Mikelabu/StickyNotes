@@ -23,26 +23,53 @@ var scenarios; // Dictionary (map) of different scenarios and options:
 var money = 100;
 var happiness = 100;
 
-// Converts excel file into 2D array:
-xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx', {sheet : 2}).then((rows) => {
-    data = rows;
-    scenarios =
-    {
-        transport : {
-            description : "You are going to school. What option do you choose?",
-            stat : "The average household weekly expenditure on transport is $20.50",
-            options : [
-                {
-                    description : "Take the train.",
-                    moneyImpact : -0.70,
-                    happinessImpact : 5
-                },
-                {
-                    description : "Take the car.",
-                    moneyImpact : 5,
-                    happinessImpact : 2
-                }
-            ]
-        }
-    };
-})
+app.get('/household', function (req, res) {
+    // Converts excel file into 2D array:
+    xlsxFile('./household-expenditure-statistics-year-ended-june-2019.xlsx', {sheet : 2}).then((rows) => {
+        data = rows;
+        scenarios =
+        {
+            transport : {
+                title : "Transport",
+                description : "You are forced to go to school. What option do you choose?",
+                stat : "The average NZ household weekly expenditure on train fares was $"+data[135][3]+" (2015-2016).",
+                options : [
+                    {
+                        description : "Take the train.",
+                        moneyImpact : "Spend $3.00",
+                        happinessImpact : "Lose 5 Happiness"
+                    },
+                    {
+                        description : "Take the car.",
+                        moneyImpact : "Spend $5.00",
+                        happinessImpact : "Gain 3 Happiness"
+                    }
+                ]
+            },
+            clothes : {
+                title : "Clothing",
+                description : "Your clothes are outdated. What option do you choose?",
+                stat : "The average NZ household weekly expenditure on clothing was $"+add(data[48][3],data[49][3])+" (2015-2016).",
+                options : [
+                    {
+                        description : "Buy new clothes.",
+                        moneyImpact : "Spend $10.00",
+                        happinessImpact : "Gain 3 Happiness"
+                    },
+                    {
+                        description : "Deal with it.",
+                        moneyImpact : "Spend Nothing",
+                        happinessImpact : "Lose 5 Happiness"
+                    }
+                ]
+            }
+        };
+
+        res.send(scenarios);
+    })
+});
+
+function add(a, b){
+    return (parseFloat(a)+parseFloat(b)).toFixed(2);
+}
+
