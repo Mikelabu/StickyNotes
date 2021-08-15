@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*Home Button*/
 .homebtn {
   color: black;
@@ -211,7 +211,6 @@ span {
   justify-content: space-between;
   align-items: baseline;
 }
-=======
 h1{
     color: rgba(136, 0, 20, 0.671);
 }
@@ -226,7 +225,7 @@ body{
     height:100%;
     width: 100%;
     position: fixed;
-    background-color:rgb(0, 125, 186);
+    background-color:rgb(240, 240, 240);
     padding-left: 20%;
     padding-right: 20%;
 }
@@ -243,7 +242,7 @@ body{
 }
 
 .happiness{
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
     margin-left: 10%;
     display: inline-block;
     width: 30%;
@@ -251,31 +250,36 @@ body{
 }
 
 .happinessBar{
-    color: yellow;
+    color: rgb(197, 197, 0);
     padding-bottom: 1%;
 }
 
 .moneyBar{
-    color: limegreen;
+    color: rgb(46, 189, 46);
     padding-bottom: 1%;
 }
 
 .money{
-    background-color: rgb(220, 220, 220);
+    background-color:rgb(240, 240, 240);
     display: inline-block;
     width:30%;
     margin-left: 20%;
     border-radius: 25px;
 }
 
+
 .logBox{
-    border-style: solid;
+    
+    background-color:rgb(240, 240, 240);
+    border-radius: 25px;
     width: 80%;
     height: 50%;
     margin-left: 10%;
-    margin-right: 10;
-	font-size: 200%;
+    margin-right: 10%;
+    font-size: 200%;
+    padding-left: 1%;
 }
+
 
 .logBoxText{
 	
@@ -286,18 +290,46 @@ body{
 	font-size: 150%;
 }
 
-.goalBox{
-    border-style: solid;
-    text-align: center;
-    width:50%;
+.goalContainer{
+    height: 50%;
+    width: auto;
+    margin-left: 5%;
+    display: flex;
+    
 }
-/* span {
+
+.goalText{
+    width: 100%;
+}
+    
+/* 
+.goalSpan{
+    display:block;
+} */
+
+.goalBox{
+    height: fit-content;  
+    /* display: auto;  */
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(240, 240, 240);
+    border-radius: 25px;
+    
+}
+
+.goalSpan{
+    width:100%;
+}
+
+span {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-  } */
+  } 
 
 .settingsButton{
+    background: url();
     margin: 0;
   position: absolute;
   left: 50%;
@@ -323,7 +355,7 @@ body{
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: rgba(136, 0, 20, 0.671);
+    background-color: rgb(138, 4, 24);
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -435,4 +467,10 @@ body{
   text-align: justify;
 }
 
->>>>>>> 47caa8115d963461633a789cd7a13373d2acb6cd
+
+.button{
+    padding-top: 1%;
+    text-align: center;
+}
+
+
