@@ -15,70 +15,33 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" 
+    src="app.js">
+    </script>
   </head>
 
-  <body>
-    <div class="mainPage">
-      <!--Title of page, might add logo here-->
-
-      <div class="titleSection">
-        <div class="title">
-          <div class="logo">
-            <img
-              src="Thriftr Icon & Name.png"
-              alt="Thrifty logo"
-              width="20%"
-              height="20%"
-            />
-          </div>
-        </div>
-        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <div class="burgerMenu" onclick="myFunction(this)">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-      </div>
-
-      <div class="showStats">
-        <div class="happiness">
-          <div class="happinessBar">
-            <img
-              src="Happy Face.svg"
-              alt="happy face"
-              width="15%"
-              height="15%"
-            />100%
-          </div>
-        </div>
-        <!--happiness -->
-
-        <div class="money">
-          <div class="moneyBar">
-            <img
-              src="Money Icon.svg"
-              alt="Money Icon"
-              width="15%"
-              height="15%"
-            />$468.24
-          </div>
-        </div>
-      </div>
-
-      <div class="goalBox">
-        <div>You are going to School</div>
-      </div>
-      <br>
-      <br>
+  <body onload="loadFirstScenario()">
+    <header class="rwd-MastHead"><!-- Header will be changed to suit design-->
+      <nav class="scanario-title"></nav>
+      <div class="hero"></div>
+      <h1 id="title">Scenarios:</h1>
+      <div>
+        <a href="index.html"><button class="homebtn">Home</button></a>
+  </div>
+    </header>
 
     <main>
       <center><img src="Thriftr-graphics\Bus_Artboard 1_Artboard 1.png" alt="Bus stop image" /></center>
         </figure>
-      <div>
+      <div>  
+        
         
       </div>
 
-      <div> 
+      <div > 
+        <h3 id="description">Description</h3>
+        <p id="hint">Paragraph</p>
+
         
       </div>
       <br>
@@ -87,18 +50,50 @@
       <br>
       
       <div class="dropdown">
-        <button class="dropbtn">Take the Train to School</button>
+        <button class="dropbtn" id="option1" onclick="loadSecondScenario()">Take the Train to School</button>
         <div class="dropdown-content">
-          <p>Taking the Traing will save you money and reduce your carbon footprint</p>
+          <a id="impact1">Train Data</a>
         </div>
       </div>
         <div class="dropdown">
-          <button class="dropbtn">Take the Gas Guzzler to School</button>
+          <button class="dropbtn" id="option2" onclick="loadSecondScenario()">Take the Gas Guzzler to School</button>
           <div class="dropdown-content">
-            <a href="#">Car Data</a>
+            <a id="impact2">Car Data</a>
           </div>
         </div>
       </div>
     </main>
+
+    <script type="text/javascript">
+      async function loadFirstScenario() {
+        const response = await fetch('/household');
+        const data = await response.json();
+        const scenario = data.transport;
+
+        document.getElementById('title').innerHTML = scenario.title;
+        document.getElementById('description').innerHTML = scenario.description;
+        document.getElementById('hint').innerHTML = scenario.stat;
+        document.getElementById('option1').innerHTML = scenario.options[0].description;
+        document.getElementById('option2').innerHTML = scenario.options[1].description;
+        document.getElementById('impact1').innerHTML = scenario.options[0].moneyImpact+", "+scenario.options[0].happinessImpact;
+        document.getElementById('impact2').innerHTML = scenario.options[1].moneyImpact+", "+scenario.options[1].happinessImpact;
+      }
+    </script>
+
+<script type="text/javascript">
+  async function loadSecondScenario() {
+    const response = await fetch('/household');
+    const data = await response.json();
+    const scenario = data.clothes;
+
+        document.getElementById('title').innerHTML = scenario.title;
+        document.getElementById('description').innerHTML = scenario.description;
+        document.getElementById('hint').innerHTML = scenario.stat;
+        document.getElementById('option1').innerHTML = scenario.options[0].description;
+        document.getElementById('option2').innerHTML = scenario.options[1].description;
+        document.getElementById('impact1').innerHTML = scenario.options[0].moneyImpact+", "+scenario.options[0].happinessImpact;
+        document.getElementById('impact2').innerHTML = scenario.options[1].moneyImpact+", "+scenario.options[1].happinessImpact;
+  }
+</script>
   </body>
 </html>
