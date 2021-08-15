@@ -1,4 +1,104 @@
 
+
+/*Home Button*/
+.homebtn {
+  color: black;
+  font-size: 13px;
+  background-color: lightgrey;
+  padding: 10px 10px;
+  margin: 10px 10px;
+  border: none;
+  box-sizing: border-box;
+  border-style: inset;
+  border-width: thin;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 120px;
+}
+.homebtn:hover {
+  background-color: lightblue;
+  color: #000;
+}
+
+/*Drop down menu*/
+.dropdown {
+  margin: 0 1rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: none;
+  font-size: 1.25rem;
+  color: #4a4a4a;
+  /*We want these buttons to have a decent touch area so they are easy to click/tap*/
+  display: inline-block;
+  min-height: 2.8125rem;
+  align-items: center;
+  /*Styles needed for the button only*/
+  border: 2rem;
+  background: none;
+}
+/*.dropdown {
+    position: relative;
+    display: inline-block;
+  }*/
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #faf320;
+  min-width: 4rem;
+  border-radius: 1rem;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 0;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(68, 215, 241);
+  color: rgb(12, 12, 12);
+}
+
+.dropdown:hover .dropdown-content {
+  margin: 1rem 3rem;
+  padding: 0 0.25rem;
+  display: block;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  text-align: center;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(68, 215, 241);
+  color: black;
+  transition: 50s;
+}
+
+/* senario section*/
+[class^="senario-"] figure {
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  border-radius: 0.5rem;
+}
+
+[class^="senario-"] figure img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 1rem;
+}
+
+[class^="senario-"] p {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1.5rem 3.2rem;
+  text-align: justify;
+}
+
+
 h1{
     color: rgba(136, 0, 20, 0.671);
 }
@@ -112,4 +212,5 @@ span {
     justify-content: space-between;
     align-items: baseline;
 }
+
 
